@@ -21,7 +21,7 @@ import lombok.ToString;
 @Entity
 @Table
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor 
 @Getter
 @Setter
 @ToString
@@ -31,15 +31,27 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long userId;
+	
+	@Column
 	private String name;
+	
+	@Column
 	private String surname;
+	
+	@Column
 	@NotBlank
 	private String username;
+	
+	@Column
 	@NotBlank
 	private String password;
+	
+	@Column
 	@Email
 	@NotBlank
 	private String email;
+	
+	@Column
 	@OneToMany(mappedBy = "user")
 	private Set<Announcement> annoucements; 
 	

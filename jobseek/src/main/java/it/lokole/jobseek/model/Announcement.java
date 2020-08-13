@@ -36,6 +36,7 @@ public class Announcement {
 	private Long annoucementId;
 	
 	@NotBlank
+	@Column
 	private String title;
 	
 	@NotEmpty
