@@ -46,7 +46,7 @@ public class User {
 	@NotBlank
 	private String password;
 	
-	@Column
+	@Column(unique=true)
 	@Email
 	@NotBlank
 	private String email;
