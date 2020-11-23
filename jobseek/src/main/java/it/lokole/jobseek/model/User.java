@@ -13,24 +13,20 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table
 @AllArgsConstructor
 @NoArgsConstructor 
-@Getter
-@Setter
-@ToString
+@Data
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
-	private Long userId;
+	@Column
+	private Long userid;
 	
 	@Column
 	private String name;
@@ -38,7 +34,7 @@ public class User {
 	@Column
 	private String surname;
 	
-	@Column
+	@Column(unique = true)
 	@NotBlank
 	private String username;
 	
@@ -46,10 +42,11 @@ public class User {
 	@NotBlank
 	private String password;
 	
-	@Column(unique=true)
+	@Column(unique = true)
 	@Email
 	@NotBlank
 	private String email;
+	
 	
 	@Column
 	@OneToMany(mappedBy = "user")

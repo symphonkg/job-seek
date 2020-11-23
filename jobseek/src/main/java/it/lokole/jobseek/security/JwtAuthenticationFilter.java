@@ -19,8 +19,12 @@ import it.lokole.jobseek.service.UserDetailsServiceImpl;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter{
 	
+	private static final String BEARER = "Bearer ";
+	private static final String AUTHORIZATION = "Authorization";
+	
 	@Autowired
 	JwtProvider jwtProvider;
+	
 	@Autowired
 	UserDetailsServiceImpl userDetailsSeviceImpl;
 
@@ -39,9 +43,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 	}
 
 	private String getJwtFromRequest(HttpServletRequest request) {
-		String bearerToken = request.getHeader("Authorization");
+		String bearerToken = request.getHeader(AUTHORIZATION);
 		
-		if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+		if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(BEARER)) {
 			return bearerToken.substring(7);
 		} 
 		return bearerToken;

@@ -33,15 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/api/jobseek/**")
+		.antMatchers("/api/jobseek/**")   // commit tutte le richieste che hanno questo path passato in parametro
 		.permitAll()
 		.anyRequest()
-		.authenticated();
-		
-		http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+		.authenticated(); // soltanto se la request è fatta previo autenticazione
+ 		
+		httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	/**
