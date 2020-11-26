@@ -1,0 +1,27 @@
+.footer {
+    background: royalblue;
+
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 10px 20px;
+}
+
+.about, .copyright {
+    text-decoration: none;
+    color: aliceblue;
+    padding-top: 10px;
+
+}
+
+.about{
+    float: left;
+}
+
+.copyright, .copyright a{
+    float: right;
+}
+
+.footer a {
+    color: aliceblue;
+}

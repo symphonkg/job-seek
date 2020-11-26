@@ -1,0 +1,27 @@
+.header {
+    padding: 5px 20px;
+    background: royalblue;
+}
+
+.title {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+    float: left;
+}
+
+.login, .register {
+    float: right;
+    text-decoration: none;
+    color: aliceblue;
+    padding-top: 10px;
+
+}
+
+a.btn.btn-primary,
+a:hover.btn.btn-primary{
+    background-color: transparent;
+    border-color: transparent;
+    display: inline-block;
+    margin-left: 10px;
+} 
